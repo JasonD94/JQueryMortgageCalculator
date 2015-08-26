@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>jQuery Mortgage Calculator</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+</head>
+<body>
+	<div class="container">
+        <div class="row">
+            <div class="row">
+                <div class="col-md-3 text-right" style="margin-top:-23px;">
+                    <h3>Type Of Loan: </h3>
+                </div>
+                <div class="col-md-9">
+                    <button class="btn btn-default LoanTypeButton" data-loantypeid="0">USDA</button>
+                    <button class="btn btn-default LoanTypeButton" data-loantypeid="1">FHA</button>
+                    <button class="btn btn-default LoanTypeButton" data-loantypeid="2">Traditional</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1">
+                    <div class="alert alert-danger alert-dismissable fade in text-center DescriptionContainer">
+                        <strong class="LoanTypeTitle">Please Select a Loan Type to Continue</strong> <span class="LoanTypeDescription"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th colspan="2" class="LoanShortName text-center"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Loan Fee: </strong></td>
+                                <td class="Info-LoanFeeCell"></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Standard PMI:</strong></td>
+                                <td class="Info-StandardPMI"></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Minimum Down Payment: </strong></td>
+                                <td class="Info-MinimumDownPayment"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-md-8">
+                    <div class="col-md-6">
+                        <table class="table">
+                            <tr>
+                                <td>Loan Amount: </td>
+                                <td><input type="number" id="LoanAmount" /></td>
+                            </tr>
+                            <tr>
+                                <td>Term (Years): </td>
+                                <td><input type="number" id="LoanTerm" /></td>
+                            </tr>
+                            <tr>
+                                <td>Taxes (Yearly $): </td>
+                                <td><input type="number" id="TaxesPerYear" /></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="col-md-6">
+                        <table class="table">
+                            <tr>
+                                <td>Down Payment (%): </td>
+                                <td><input type="number" step="5" id="DownPayment" /></td>
+                            </tr>
+                            <tr>
+                                <td>Annual Interest Rate (%): </td>
+                                <td><input type="number" step="5" id="InterestRateInput" /></td>
+                            </tr>
+                            <tr>
+                                <td>Insurance Rate (%): </td>
+                                <td><input type="number" step="5" id="InsuranceRate" /></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Metric</th>
+                                <th>Total Over Term</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Total Borrowed: </td>
+                                <td class="Total-TotalAmountBorrowed"></td>
+                            </tr>
+                            <tr>
+                                <td>Down Payment: </td>
+                                <td class="Total-DownPayment"></td>
+                            </tr>
+                            <tr>
+                                <td>Origination Fees: </td>
+                                <td class="Total-OriginationFees"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-md-6">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Expense Type</th>
+                                <th>Monthly Amount Due</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Principal and Interest</strong></td>
+                                <td class="Monthly-PrincipalAndInterest"></td>
+                            </tr>
+                            <tr>
+                                <td><strong>PMI: </strong></td>
+                                <td class="Monthly-PMI"></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Insurance: </strong></td>
+                                <td class="Monthly-Insurance"></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Taxes: </strong></td>
+                                <td class="Monthly-Taxes"></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Total Monthly Payment: </strong></td>
+                                <td class="Monthly-TotalMonthlyPayment"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+	</div>
+	<script src="https://code.jquery.com/jquery-1.11.3.min.js" type="text/javascript"></script>
+    <script src="MortgageCalculator.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		$(document).ready(function () {
+			MortgageCalculator.Init();
+		}); // end doc ready
+	</script>
+</body>
+</html>
